@@ -5,7 +5,11 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
+import { BusDetailsComponent } from './bus-details/bus-details.component';
+import {routing, appRoutingProviders} from './app.routes.ts';
+import { BusListComponent } from './bus-list/bus-list.component';
 
+//Todo: move to configuration file.
   // Initialize Firebase
   export const config = {
     apiKey: "AIzaSyDR8pSPQpt15VulnWwqkww8G3UBmDkSiLY",
@@ -13,21 +17,21 @@ import { AppComponent } from './app.component';
     databaseURL: "https://gdg-bustracker.firebaseio.com",
     storageBucket: "gdg-bustracker.appspot.com"
   };
-
-  // ,
-  //   messagingSenderId: "161634435204"
  
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BusDetailsComponent,
+    BusListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AngularFireModule.initializeApp(config)
+    AngularFireModule.initializeApp(config),
+    routing
   ],
-  providers: [],
+  providers: [appRoutingProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
