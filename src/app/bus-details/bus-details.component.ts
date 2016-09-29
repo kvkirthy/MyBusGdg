@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-bus-details',
@@ -7,7 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(route: ActivatedRoute, private firebase: AngularFire) {
+      const list = firebase.database.list('',{
+        query: {
+          orderByChild: 'busId',
+          equalTo: 'A2F001'
+        }
+      });
+      list.forEach(element => {
+        console.log(element)
+      });
+   }
 
   ngOnInit() {
   }

@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { BusDetailsComponent } from './bus-details/bus-details.component';
 import {routing, appRoutingProviders} from './app.routes.ts';
 import { BusListComponent } from './bus-list/bus-list.component';
+import { AdminComponent } from './admin/admin.component';
 
 //Todo: move to configuration file.
   // Initialize Firebase
@@ -22,7 +23,8 @@ import { BusListComponent } from './bus-list/bus-list.component';
   declarations: [
     AppComponent,
     BusDetailsComponent,
-    BusListComponent
+    BusListComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

@@ -10,9 +10,13 @@ export class BusListComponent implements OnInit {
   buses: FirebaseListObservable<any[]>;
   constructor(af: AngularFire){
     console.log(af);
-    this.buses = af.database.list("/");
+    this.buses = af.database.list("/schedule");
 
     //console.log(this.buses);
+  }
+
+  busSelected(bus){
+    console.log(bus);
   }
 
   ngOnInit() {

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-6" *ngFor="let item of buses | async">
-    <div class="panel panel-default">
+    <div class="panel panel-default" click="(busSelected(item))">
       <div class="panel-heading">
         <h3 class="panel-title">{{item.from}} to {{item.to}}</h3>
       </div>
@@ -8,16 +8,14 @@
         <div class="row">
           <div class="col-sm-6">
             <div>
-              <strong>
-                    Distance:
-                  </strong>
-              <span> {{item.kmsToGo}}</span>
-            </div>
-            <div>
-              At {{item.lastSpottedTime}} spotted at {{item.lastSpottedAt}}
+              <span>
+                    Expected to reach by <strong>{{item.expectedTimeOfArrival}}</strong>
+              </span>
             </div>
           </div>
-
+        </div>
+        <div *ngIf="item.delay > 0" style="color:red">
+          Delayed by {{item.delay}} minutes. Originally scheduled reach {{item.to}} by {{item.scheduledTimeOfArrival}}. Reason: {{item.delayReason}}
         </div>
       </div>
     </div>
