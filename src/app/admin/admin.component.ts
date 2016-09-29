@@ -17,17 +17,28 @@ export class AdminComponent implements OnInit {
    }
 
    increment(item){
-     item.delay += 1;
-     item.expectedTimeOfArrival = this.addMinutes(item, 1);
+       item.delay += 1;
+       item.expectedTimeOfArrival = this.addMinutes(item, 1);
+     
    }
 
    decrement(item){
+     if(item.delay > 0){
+     
      item.delay -= 1;
+     item.expectedTimeOfArrival = this.deductMinutes(item, 1);
+     }
    }
 
    addMinutes(item, minutes){
      let lTime: Date = new Date(item.expectedTimeOfArrival);
      lTime.setMinutes(lTime.getMinutes() + minutes);
+     return lTime;
+   }
+
+   deductMinutes(item, minutes){
+     let lTime: Date = new Date(item.expectedTimeOfArrival);
+     lTime.setMinutes(lTime.getMinutes() - minutes);
      return lTime;
    }
 

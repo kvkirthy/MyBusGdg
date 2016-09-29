@@ -11,8 +11,6 @@ export class BusListComponent implements OnInit {
   constructor(af: AngularFire){
     console.log(af);
     this.buses = af.database.list("/schedule");
-
-    //console.log(this.buses);
   }
 
   busSelected(bus){

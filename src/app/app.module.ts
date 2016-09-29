@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 
 import { AppComponent } from './app.component';
-import { BusDetailsComponent } from './bus-details/bus-details.component';
 import {routing, appRoutingProviders} from './app.routes.ts';
 import { BusListComponent } from './bus-list/bus-list.component';
 import { AdminComponent } from './admin/admin.component';
@@ -22,7 +21,6 @@ import { AdminComponent } from './admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent,
-    BusDetailsComponent,
     BusListComponent,
     AdminComponent
   ],
