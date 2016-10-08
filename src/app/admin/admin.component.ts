@@ -41,12 +41,11 @@ export class AdminComponent implements OnInit {
    }
 
    save(item){
-    console.log(item.delayReason);
-    this.schedule.update(item.$key, {
-      expectedTimeOfArrival: item.expectedTimeOfArrival,
-      delay: item.delay,
-      delayReason: item.delayReason
-    });
+    this.busDataAccess.saveBusData(item.$key,
+      item.expectedTimeOfArrival,
+      item.delay,
+      item.delayReason
+    );
    }
 
   ngOnInit() {
